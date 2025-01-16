@@ -92,8 +92,9 @@ Three Python scripts are included for automated scraping:
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
-   cd <repository_folder>
+   git clone https://github.com/JanyaV/GoMarble-assignment.git
+   cd GoMarble-assignment
+
    ```
 2. Install dependencies:
    ```bash
@@ -106,6 +107,8 @@ Three Python scripts are included for automated scraping:
 1. Start the FastAPI server:
    ```bash
    uvicorn review1:app --reload
+   uvicorn review2:app --reload
+   uvicorn server3:app --reload
    ```
 2. Open API documentation at: `http://127.0.0.1:8000/docs`.
 3. Use the `/api/reviews` endpoint:
