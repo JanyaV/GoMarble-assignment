@@ -15,7 +15,7 @@ import logging
 app = FastAPI()
 
 # Groq API Configuration
-GROQ_API_KEY = "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"  # Replace with your actual API key
+GROQ_API_KEY = "g##########n6hnP#########gW1i0W#####2qw"  # Replace with your actual API key
 client = Groq(api_key=GROQ_API_KEY)
 
 # Logging configuration
