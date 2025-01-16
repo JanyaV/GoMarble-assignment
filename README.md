@@ -57,14 +57,14 @@ Three Python scripts are included for automated scraping:
 ## Project Workflow
 ### Workflow Diagram
 ```
-    +-----------------------+
+    +----------------------+
     | Instant Data Scraper |
-    +-----------------------+
+    +----------------------+
                |
                v
-   +-------------------------------+
+   +--------------------------------------+
    | review1.py / review2.py / server3.py |
-   +-------------------------------+
+   +--------------------------------------+
              |              \
        (Groq API)        (Heuristics)
              |                |
