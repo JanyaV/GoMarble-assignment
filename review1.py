@@ -23,7 +23,7 @@ app = FastAPI()
 
 # Groq API Configuration
 
-GROQ_API_KEY = "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"
+GROQ_API_KEY = "g######J###X######hnPakkSHWGd#####9xf6fgW##0WpyjJ2qw"
 
 client = Groq(api_key=GROQ_API_KEY)
 
