@@ -1,4 +1,4 @@
-# README: Comprehensive Review Scraper Project
+# Comprehensive Review Scraper Project
 
 ## Overview
 This project is designed to extract user reviews from web pages and structure them into JSON format. The complexity of this task necessitates the use of multiple tools and technologies, including:
