@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+        }
+        label, input, button {
+            display: block;
+            margin-bottom: 1rem;
+        }
+        #results {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Reviews Extractor</h1>
+    <form id="reviewForm">
+        <label for="url">Enter Product Page URL:</label>
+        <input type="text" id="url" name="url" required>
+        <button type="submit">Get Reviews</button>
+    </form>
+    <div id="results"></div>
+
+    <script>
+        document.getElementById("reviewForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+            const url = document.getElementById("url").value;
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = "Loading reviews...";
+            
+            try {
+                const response = await fetch(`/api/reviews?page=${encodeURIComponent(url)}`);
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.statusText}`);
+                }
+                const data = await response.json();
+                resultsDiv.innerHTML = `
+                    <h2>Extracted Reviews (${data.reviews_count})</h2>
+                    <ul>
+                        ${data.reviews.map(review => `
+                            <li>
+                                <strong>${review.title}</strong><br>
+                                <em>${review.reviewer} - ${review.rating} stars</em><br>
+                                ${review.body}
+                            </li>
+                        `).join("")}
+                    </ul>
+                `;
+            } catch (error) {
+                resultsDiv.innerHTML = `Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>
+
